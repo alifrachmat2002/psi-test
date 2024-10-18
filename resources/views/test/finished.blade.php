@@ -6,7 +6,7 @@
     </div>
     <h2 class="mb-3 text-primary">Tes <span class="text-uppercase">{{ $hasil->last_test }}</span> Selesai</h2>
 
-    @if ($hasil->last_test == 'ghq')
+    @if ($hasil->last_test == 'ghq12')
         <div class="alert alert-primary d-flex flex-column align-items-center">
             <p>Terima kasih telah mengisi tes GHQ. Skor tes GHQ anda adalah <strong>{{ $hasil->ghq_total }}</strong></p>
 
