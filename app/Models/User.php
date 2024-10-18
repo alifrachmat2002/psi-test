@@ -45,4 +45,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function hasil()
+    {
+        return $this->hasMany(Hasil::class);
+    }
+
+    public function latestHasil() {
+        return $this->hasOne(Hasil::class)->latestOfMany();
+    }
 }

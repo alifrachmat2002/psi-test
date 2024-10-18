@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreGHQRequest;
+use App\Models\GHQQuestions;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class GHQController extends Controller
+{
+    public function create()
+    {
+        $questions = GHQQuestions::all();
+        return view('ghq.create', compact('questions'));
+    }
+
+    public function store(StoreGHQRequest $request)
+    {
+        $hasil = DB::transaction(function () use ($request) {
+        // turn the values into integers
+        $processedValues = array_map(function ($val) {
+            return floor($val);
+        }, $request->validated());
+
+        // sum the values
+        $summedValues = array_sum($processedValues);
+
+        // save the values to the database
+        $hasil = auth()
+            ->user()
+            ->hasil()
+            ->create([
+                'total' => $summedValues,
+                'status_pengerjaan' => 'belum selesai',
+                'ghq_waktu' => now(),
+                'ghq_total' => $summedValues,
+                'last_test' => 'ghq12',
+            ]);
+
+        $ghq_answers = $hasil->ghqAnswers()->create(
+            array_merge(
+                [
+                    'total' => $summedValues,
+                    'keterangan' => $summedValues > 10 ? 'tidak sehat' : 'sehat',
+                ],
+                $processedValues,
+            ),
+        );
+
+        return $hasil; // return untuk transaction callback
+    });
+
+    // Return view setelah transaksi selesai
+    return view('test.finished', compact('hasil'));
+    }
+}

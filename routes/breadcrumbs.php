@@ -13,3 +13,14 @@ Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Home', route('dashboard'));
 });
 
+// GHQ Test
+Breadcrumbs::for('test-ghq', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('GHQ Test');
+});
+
+// GHQ Test Finished
+Breadcrumbs::for('test-ghq.submit', function (BreadcrumbTrail $trail) {
+    $trail->parent('test-ghq');
+    $trail->push('Tes Selesai');
+});
