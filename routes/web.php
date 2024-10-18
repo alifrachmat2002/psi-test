@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DASS21Controller;
 use App\Http\Controllers\GHQController;
 use App\Http\Controllers\TestFinishedController;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/test-ghq',[GHQController::class,'create'])->name('test-ghq');
     Route::post('/test-ghq',[GHQController::class,'store'])->name('test-ghq.submit');
+
+    Route::get('/test-dass21',[DASS21Controller::class,'create'])->name('test-dass21');
+    Route::post('/test-dass21',[DASS21Controller::class,'store'])->name('test-dass21.submit');
 
     Route::get('/test-finished/{hasil}',[TestFinishedController::class,'testFinished'])->name('test-finished');
 });

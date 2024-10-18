@@ -16,4 +16,9 @@ class Hasil extends Model
     {
         return $this->hasMany(GHQAnswers::class);
     }
+
+    public function dass21Answers()
+    {
+        return $this->hasOne(DASS21Answers::class);
+    }
 }
