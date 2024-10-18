@@ -9631,6 +9631,10 @@ a.text-light:hover, a.text-light:focus {
   color: #5a5c69 !important;
 }
 
+.text-grey {
+  color: #45464e !important;
+}
+
 a.text-dark:hover, a.text-dark:focus {
   color: #373840 !important;
 }
