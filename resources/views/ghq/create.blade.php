@@ -1,25 +1,20 @@
-@extends('layouts.main')
+@extends('layouts.test')
 
-@section('container')
-    <div class="">
-        {{ Breadcrumbs::render() }}
-    </div>
-    <h2 class="mb-3 text-primary">Selamat Datang di Tes GHQ, {{ auth()->user()->name }}</h2>
-    <div class="alert alert-secondary p-4">
-        General Health Questionaire (GHQ) atau kondisi kesehatan mental umum terdiri dari
-        12 aitem yang akan mengidentifikasi distress psikologis individu dalam beberapa minggu terakhir. GHQ-12 (α =
-        0.82)
-        didesain dalam setting klinis untuk mendeteksi secaara individual terkait kondisi Kesehatan mental. GHQ
-        dikembangkan
-        oleh Goldberg dan Hiller (1979).
-        <br>
-        <br>
-        Silahkan jawab pertanyaan berikut dengan jujur dan sejujurnya. Pilih salah satu jawaban yang paling mendekati
-        kondisi anda dalam beberapa minggu terakhir. Jawaban anda akan membantu kami dalam menilai kondisi kesehatan.
-        Jawaban anda bersifat rahasia dan tidak akan disebarkan ke pihak manapun.
-    </div>
-    {{-- Metode skoring: 0-0-1-1 (dimulai daari setiap pilihan jawaban dari kiri ke kanan). Nilai  GHQ didapatkan dari menjumlahkan skor per aitem. Interpretasi kondisi distress didapatkam dari nilai cut point 5 atau 6, artinya individu dengan skor 5 ke bawah memiliki kondisi mental yang sehat, dan individu dengan skor 6 keatas adalah sebaliknya. --}}
+@section('test-description')
+    General Health Questionaire (GHQ) atau kondisi kesehatan mental umum terdiri dari
+    12 aitem yang akan mengidentifikasi distress psikologis individu dalam beberapa minggu terakhir. GHQ-12 (α =
+    0.82)
+    didesain dalam setting klinis untuk mendeteksi secaara individual terkait kondisi Kesehatan mental. GHQ
+    dikembangkan
+    oleh Goldberg dan Hiller (1979).
+    <br>
+    <br>
+    Silahkan jawab pertanyaan berikut dengan jujur dan sejujurnya. Pilih salah satu jawaban yang paling mendekati
+    kondisi anda dalam beberapa minggu terakhir. Jawaban anda akan membantu kami dalam menilai kondisi kesehatan.
+    Jawaban anda bersifat rahasia dan tidak akan disebarkan ke pihak manapun.
+@endsection
 
+@section('test-form')
     <form action="{{ route('test-ghq.submit') }}" class="text-grey" method="POST">
         @csrf
         <ol>
@@ -27,29 +22,33 @@
                 <li class="mb-4">
                     <p class="mb-2">{{ $question->question }}</p>
                     <div class="form-check">
-                        <input class="form-check-input @error('q'.$loop->iteration) is-invalid @enderror" type="radio" name="q{{ $loop->iteration }}"
-                            id="{{ 'q' . $loop->iteration . 'pil1' }}" value="0.1" @checked(old('q'.$loop->iteration) == "0.1")>
+                        <input class="form-check-input @error('q' . $loop->iteration) is-invalid @enderror" type="radio"
+                            name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil1' }}" value="0.1"
+                            @checked(old('q' . $loop->iteration) == '0.1')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil1' }}">
                             {{ $question->pil1 }}
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input @error('q'.$loop->iteration) is-invalid @enderror" type="radio" name="q{{ $loop->iteration }}"
-                            id="{{ 'q' . $loop->iteration . 'pil2' }}" value="0.2" @checked(old('q'.$loop->iteration) == "0.2")>
+                        <input class="form-check-input @error('q' . $loop->iteration) is-invalid @enderror" type="radio"
+                            name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil2' }}" value="0.2"
+                            @checked(old('q' . $loop->iteration) == '0.2')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil2' }}">
                             {{ $question->pil2 }}
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input @error('q'.$loop->iteration) is-invalid @enderror" type="radio" name="q{{ $loop->iteration }}"
-                            id="{{ 'q' . $loop->iteration . 'pil3' }}" value="1.1" @checked(old('q'.$loop->iteration) == "1.1")>
+                        <input class="form-check-input @error('q' . $loop->iteration) is-invalid @enderror" type="radio"
+                            name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil3' }}" value="1.1"
+                            @checked(old('q' . $loop->iteration) == '1.1')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil3' }}">
                             {{ $question->pil3 }}
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input @error('q'.$loop->iteration) is-invalid @enderror" type="radio" name="q{{ $loop->iteration }}"
-                            id="{{ 'q' . $loop->iteration . 'pil4' }}" value="1.2" @checked(old('q'.$loop->iteration) == "1.2")>
+                        <input class="form-check-input @error('q' . $loop->iteration) is-invalid @enderror" type="radio"
+                            name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil4' }}" value="1.2"
+                            @checked(old('q' . $loop->iteration) == '1.2')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil4' }}">
                             {{ $question->pil4 }}
                         </label>
@@ -72,7 +71,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Anda yakin ingin mengumpulkan tes ini? Anda tidak bisa mengubah jawaban setelah mengumpulkan tes. 
+                        Anda yakin ingin mengumpulkan tes ini? Anda tidak bisa mengubah jawaban setelah mengumpulkan tes.
                         <br>
                         <br>
                         Pastikan anda sudah menjawab semua pertanyaan, dan jawaban anda sudah benar.
@@ -86,3 +85,5 @@
         </div>
     </form>
 @endsection
+
+

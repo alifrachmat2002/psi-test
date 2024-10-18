@@ -12,7 +12,8 @@ class GHQController extends Controller
     public function create()
     {
         $questions = GHQQuestions::all();
-        return view('ghq.create', compact('questions'));
+        $jenis = 'ghq';
+        return view('ghq.create', compact('questions','jenis'));
     }
 
     public function store(StoreGHQRequest $request)
