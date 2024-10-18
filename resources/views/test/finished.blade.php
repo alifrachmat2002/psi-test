@@ -20,7 +20,7 @@
         @endif
         @if ($hasil->ghq_total > 10)
             <p>Silahkan mengerjakan tes selanjutnya untuk mengetahui kondisi mental anda lebih lanjut</p>
-            <a href="" class="text-decoration-none"><button class="btn btn-primary d-block mb-3"><i class="fas fa-download"></i> Klik untuk melanjutkan </button></a>
+            <a href="" class="text-decoration-none"><button class="btn btn-primary d-block mb-3">Klik untuk melanjutkan <i class="fas fa-arrow-right"></i></button></a>
         @else
             <a href="" class="text-decoration-none"><button class="btn btn-primary d-block mb-3"><i class="fas fa-download"></i> Unduh Hasil Tes</button></a>
 

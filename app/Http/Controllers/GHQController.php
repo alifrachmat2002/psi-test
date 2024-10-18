@@ -52,6 +52,6 @@ class GHQController extends Controller
     });
 
     // Return view setelah transaksi selesai
-    return view('test.finished', compact('hasil'));
+    return redirect()->route('test-finished', compact('hasil'));
     }
 }

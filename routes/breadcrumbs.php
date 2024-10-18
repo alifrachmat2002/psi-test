@@ -19,8 +19,7 @@ Breadcrumbs::for('test-ghq', function (BreadcrumbTrail $trail) {
     $trail->push('GHQ Test');
 });
 
-// GHQ Test Finished
-Breadcrumbs::for('test-ghq.submit', function (BreadcrumbTrail $trail) {
-    $trail->parent('test-ghq');
+// Test Finished
+Breadcrumbs::for('test-finished', function (BreadcrumbTrail $trail) {
     $trail->push('Tes Selesai');
 });
