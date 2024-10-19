@@ -25,6 +25,12 @@ Breadcrumbs::for('test-dass21', function (BreadcrumbTrail $trail) {
     $trail->push('DASS21 Test');
 });
 
+// HSCL25 Test
+Breadcrumbs::for('test-hscl25', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('HSCL25 Test');
+});
+
 // Test Finished
 Breadcrumbs::for('test-finished', function (BreadcrumbTrail $trail) {
     $trail->push('Tes Selesai');

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GHQQuestionsSeeder::class,
             DASS21QuestionsSeeder::class,
+            HSCL25QuestionsSeeder::class,
         ]);
     }
 }
