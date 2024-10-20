@@ -6,11 +6,15 @@ use App\Http\Requests\StoreDASS21Request;
 use App\Models\DASS21Questions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class DASS21Controller extends Controller
 {
     public function create()
     {
+        if (Gate::denies('can-dass21')) {
+            return redirect()->route('dashboard');
+        }
         $questions = DASS21Questions::all();
         $jenis = 'dass21';
         return view('dass21.create', compact('questions','jenis'));
@@ -106,13 +110,18 @@ class DASS21Controller extends Controller
 
         $waktu = now();
 
+        $statusPengerjaan = 'belum selesai';
+        if ($kecemasan < 14 && $stress < 19 && $depresi < 10) {
+            $statusPengerjaan = 'selesai';
+        }
+
         $hasil = auth()
             ->user()
             ->latestHasil()
             ->first();
 
         $hasil->update([
-                'status_pengerjaan' => 'belum selesai',
+                'status_pengerjaan' => $statusPengerjaan,
                 'dass21_kecemasan' => $kecemasan,
                 'dass21_stress' => $stress,
                 'dass21_depresi' => $depresi,

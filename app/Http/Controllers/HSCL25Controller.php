@@ -6,11 +6,15 @@ use App\Http\Requests\StoreHSCL25Request;
 use App\Models\HSCL25Questions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class HSCL25Controller extends Controller
 {
     public function create()
     {
+        if (Gate::denies('can-hscl25')) {
+            return redirect()->route('dashboard');
+        }
         $questions = HSCL25Questions::all();
         $jenis = 'hscl25';
         return view('hscl25.create', compact('questions','jenis'));
@@ -58,13 +62,18 @@ class HSCL25Controller extends Controller
             $totalSum = $depresiSum + $kecemasanSum;
             $total = round($totalSum / 25, 2);
 
+            $statusPengerjaan = 'belum selesai';
+            if ($kecemasan < 1.75 && $depresi < 1.75 && $total < 1.75) {
+                $statusPengerjaan = 'selesai';
+            }
+
             $hasil = auth()
             ->user()
             ->latestHasil()
             ->first();
 
         $hasil->update([
-                'status_pengerjaan' => 'belum selesai',
+                'status_pengerjaan' => $statusPengerjaan,
                 'hscl25_kecemasan' => $kecemasan,
                 'hscl25_depresiDSM4' => $depresi,
                 'hscl25_total' => $total,

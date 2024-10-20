@@ -6,7 +6,7 @@ use App\Http\Controllers\DASS21Controller;
 use App\Http\Controllers\GHQController;
 use App\Http\Controllers\HSCL25Controller;
 use App\Http\Controllers\HTQController;
-use App\Http\Controllers\TestFinishedController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
@@ -24,7 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/test-htq',[HTQController::class,'create'])->name('test-htq');
     Route::post('/test-htq',[HTQController::class,'store'])->name('test-htq.submit');
 
-    Route::get('/test-finished/{hasil}',[TestFinishedController::class,'testFinished'])->name('test-finished');
+    Route::get('/test-finished/{hasil}',[TestController::class,'testFinished'])->name('test-finished');
+    Route::get('/resume-test',[TestController::class,'resumeTest'])->name('resume-test');
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');

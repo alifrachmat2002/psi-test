@@ -6,11 +6,15 @@ use App\Http\Requests\StoreHTQRequest;
 use App\Models\HTQQuestions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class HTQController extends Controller
 {
     public function create()
     {
+        if (Gate::denies('can-htq')) {
+            return redirect()->route('dashboard');
+        }
         $questions = HTQQuestions::all();
         $jenis = 'htq';
         return view('htq.create', compact('questions', 'jenis'));

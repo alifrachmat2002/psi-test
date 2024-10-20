@@ -6,11 +6,16 @@ use App\Http\Requests\StoreGHQRequest;
 use App\Models\GHQQuestions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class GHQController extends Controller
 {
     public function create()
     {
+        // only allow user to access the test if they don't have any unfinished test
+        if (Gate::denies('can-ghq')) {
+            return redirect()->route('dashboard');
+        }
         $questions = GHQQuestions::all();
         $jenis = 'ghq';
         return view('ghq.create', compact('questions','jenis'));
@@ -33,7 +38,7 @@ class GHQController extends Controller
             ->hasil()
             ->create([
                 'total' => $summedValues,
-                'status_pengerjaan' => 'belum selesai',
+                'status_pengerjaan' => $summedValues > 10 ? 'belum selesai' : 'selesai',
                 'ghq_waktu' => now(),
                 'ghq_total' => $summedValues,
                 'last_test' => 'ghq12',

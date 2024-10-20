@@ -54,4 +54,11 @@ class User extends Authenticatable
     public function latestHasil() {
         return $this->hasOne(Hasil::class)->latestOfMany();
     }
+
+    public function hasUnfinishedHasil() {
+        if ($this->latestHasil) {
+            return $this->latestHasil->status_pengerjaan === 'belum selesai';
+        }
+        return false;
+    }
 }
