@@ -33,6 +33,12 @@ return new class extends Migration
             $table->float('hscl25_total')->nullable();
             $table->dateTime('hscl25_waktu')->nullable();
 
+            // columns for HTQ
+            $table->float('htq_depresiDSM4')->nullable();
+            $table->float('htq_total')->nullable();
+            $table->dateTime('htq_waktu')->nullable();
+
+
             $table->timestamps();
         });
     }

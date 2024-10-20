@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             GHQQuestionsSeeder::class,
             DASS21QuestionsSeeder::class,
             HSCL25QuestionsSeeder::class,
+            HTQQuestionsSeeder::class
         ]);
     }
 }

@@ -26,4 +26,9 @@ class Hasil extends Model
     {
         return $this->hasOne(HSCL25Answers::class);
     }
+
+    public function htqAnswers()
+    {
+        return $this->hasOne(HTQAnswers::class);
+    }
 }
