@@ -7,12 +7,15 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-3 text-primary">Manajemen User</h2>
         <div class="">
-            <a href="" class="btn btn-primary">Tambah User</a>
+            <a href="{{ route('admin.users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah User</a>
         </div>
     </div>
     @if (session()->has('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     @endif
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -28,7 +31,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->level == 1 ? 'Admin' : 'User' }}</td>
-                    <td><a href="{{ route('admin.users.edit',['user' => $user]) }}">Edit</a></td>
+                    <td><a href="{{ route('admin.users.edit', ['user' => $user]) }}">Edit</a></td>
                 </tr>
             @endforeach
         </tbody>
@@ -40,6 +43,5 @@
         $(document).ready(function() {
             $('#dataTable').DataTable();
         });
-
-    </script>    
+    </script>
 @endsection

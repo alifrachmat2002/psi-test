@@ -16,6 +16,30 @@ class AdminUserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
+    public function create() {
+        return view('admin.users.create');
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required','numeric', 'max_digits:100', 'unique:'.User::class],
+            'jenis_kelamin' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class, 'ends_with:undip.ac.id'],
+            'password' => ['required', 'confirmed', Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'username' => $request->username,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('admin.users')->with('success', 'User ' . $user->name . ' berhasil dibuat');
+    }
+
     public function edit(User $user)
     {
         return view('admin.users.edit', compact('user'));

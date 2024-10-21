@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/resume-test',[TestController::class,'resumeTest'])->name('resume-test');
 
         Route::get('/admin/users',[AdminUserController::class,'index'])->can('manage-users')->name('admin.users');
+        Route::get('/admin/users/create',[AdminUserController::class,'create'])->can('manage-users')->name('admin.users.create');
+        Route::post('/admin/users/create',[AdminUserController::class,'store'])->can('manage-users')->name('admin.users.create');
         Route::get('/admin/users/{user}',[AdminUserController::class,'edit'])->can('manage-users')->name('admin.users.edit');
         Route::put('/admin/users/{user}',[AdminUserController::class,'update'])->can('manage-users')->name('admin.users.update');
 });
