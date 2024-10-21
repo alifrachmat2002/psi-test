@@ -45,5 +45,11 @@ Breadcrumbs::for('test-finished', function (BreadcrumbTrail $trail) {
 // User Management
 Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
-    $trail->push('User Management');
+    $trail->push('User Management', route('admin.users'));
+});
+
+// User Edit
+Breadcrumbs::for('admin.users.edit', function (BreadcrumbTrail $trail, $user) {
+    $trail->parent('admin.users');
+    $trail->push($user->name, route('admin.users.edit', $user));
 });

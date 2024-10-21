@@ -10,6 +10,11 @@
             <a href="" class="btn btn-primary">Tambah User</a>
         </div>
     </div>
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
@@ -23,7 +28,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->level == 1 ? 'Admin' : 'User' }}</td>
-                    <td><a href="">Edit</a></td>
+                    <td><a href="{{ route('admin.users.edit',['user' => $user]) }}">Edit</a></td>
                 </tr>
             @endforeach
         </tbody>

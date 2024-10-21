@@ -32,7 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/test-finished/{hasil}',[TestController::class,'testFinished'])->name('test-finished');
     Route::get('/resume-test',[TestController::class,'resumeTest'])->name('resume-test');
 
-    Route::get('/admin/users',[AdminUserController::class,'index'])->name('admin.users')->can('manage-users');
+        Route::get('/admin/users',[AdminUserController::class,'index'])->can('manage-users')->name('admin.users');
+        Route::get('/admin/users/{user}',[AdminUserController::class,'edit'])->can('manage-users')->name('admin.users.edit');
+        Route::put('/admin/users/{user}',[AdminUserController::class,'update'])->can('manage-users')->name('admin.users.update');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
