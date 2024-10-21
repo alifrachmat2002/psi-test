@@ -26,6 +26,7 @@ class AdminUserController extends Controller
             'username' => ['required','numeric', 'max_digits:100', 'unique:'.User::class],
             'jenis_kelamin' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class, 'ends_with:undip.ac.id'],
+            'role' => ['required', 'in:1,2'],
             'password' => ['required', 'confirmed', Password::defaults()],
         ]);
 
@@ -34,6 +35,7 @@ class AdminUserController extends Controller
             'username' => $request->username,
             'jenis_kelamin' => $request->jenis_kelamin,
             'email' => $request->email,
+            'level' => $request->role,
             'password' => Hash::make($request->password),
         ]);
 

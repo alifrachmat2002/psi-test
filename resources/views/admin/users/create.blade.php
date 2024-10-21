@@ -88,7 +88,7 @@
             </div>
             <div class="form-check">
                 <input class="form-check-input @error('role') is-invalid @enderror" type="radio"
-                    name="role" id="roleAdminInput" value="perempuan" @checked(old('role') == '2')>
+                    name="role" id="roleAdminInput" value="1" @checked(old('role') == '2')>
                 <label class="form-check-label" for="roleAdminInput">
                     Admin
                 </label>
