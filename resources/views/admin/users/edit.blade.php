@@ -51,11 +51,11 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-        <small id="nameHelpBlock" class="form-text text-muted ml-3 text-center">
+        <small id="nameHelpBlock" class="form-text text-muted ml-3 ">
             Pilih jenis kelamin anda.
         </small>
-        <div class="d-flex justify-content-around mb-3">
-            <div class="form-check">
+        <div class="d-flex justify-content-left mb-3 ml-3">
+            <div class="form-check mr-3">
                 <input class="form-check-input @error('jenis_kelamin') is-invalid @enderror" type="radio"
                     name="jenis_kelamin" id="jenisKelaminLakiLakiInput" value="laki-laki" @checked( old('jenis_kelamin') ? old('jenis_kelamin') == 'laki-laki' : $user->jenis_kelamin == 'laki-laki' )>
                 <label class="form-check-label" for="jenisKelaminLakiLakiInput">
@@ -70,6 +70,29 @@
                     name="jenis_kelamin" id="jenisKelaminPerempuanInput" value="perempuan" @checked( old('jenis_kelamin') ? old('jenis_kelamin') == 'perempuan' : $user->jenis_kelamin == 'perempuan')>
                 <label class="form-check-label" for="jenisKelaminPerempuanInput">
                     Perempuan
+                </label>
+
+            </div>
+        </div>
+        <small id="nameHelpBlock" class="form-text text-muted ml-3">
+            Pilih role user.
+        </small>
+        <div class="d-flex justify-content-left mb-3 ml-3">
+            <div class="form-check mr-3">
+                <input class="form-check-input @error('role') is-invalid @enderror" type="radio"
+                    name="role" id="roleUserInput" value="2" @checked(old('role') ? old('role') == '2' : $user->level == 2)>
+                <label class="form-check-label" for="roleUserInput">
+                    User
+                </label>
+                @error('role')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-check">
+                <input class="form-check-input @error('role') is-invalid @enderror" type="radio"
+                    name="role" id="roleAdminInput" value="1" @checked(old('role') ? old('role') == '1' : $user->level == 1)>
+                <label class="form-check-label" for="roleAdminInput">
+                    Admin
                 </label>
 
             </div>

@@ -55,6 +55,7 @@ class AdminUserController extends Controller
             'username' => ['sometimes', 'numeric', 'max_digits:100', 'unique:users,username,' . $userId],
             'jenis_kelamin' => ['sometimes', 'string', 'max:255'],
             'email' => ['sometimes', 'string', 'lowercase', 'email', 'max:255', 'ends_with:undip.ac.id', 'unique:users,email,' . $userId],
+            'role' => ['sometimes', 'in:1,2'],
             'password' => ['sometimes', 'confirmed', Password::defaults()],
         ];
 
@@ -66,6 +67,7 @@ class AdminUserController extends Controller
         $request->validate($rules);
 
         $data = $request->only(['name', 'username', 'jenis_kelamin', 'email']);
+        $data['level'] = $request->role == 2 ? 2 : 1;
 
         // Update password hanya jika diisi
         if ($request->filled('password')) {
