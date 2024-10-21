@@ -12,7 +12,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth','verified'])->group(function () {
+// Route::middleware(['auth','verified'])->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/test-ghq',[GHQController::class,'create'])->name('test-ghq');
