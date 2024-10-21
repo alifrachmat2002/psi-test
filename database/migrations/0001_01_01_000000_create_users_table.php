@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('level')->default(2); // 1 = admin, 2 = user
             $table->rememberToken();
             $table->timestamps();
         });

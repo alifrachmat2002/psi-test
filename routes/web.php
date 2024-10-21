@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DASS21Controller;
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/test-finished/{hasil}',[TestController::class,'testFinished'])->name('test-finished');
     Route::get('/resume-test',[TestController::class,'resumeTest'])->name('resume-test');
+
+    Route::get('/admin/users',[AdminUserController::class,'index'])->name('admin.users')->can('manage-users');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');

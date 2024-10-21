@@ -41,3 +41,9 @@ Breadcrumbs::for('test-htq', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('test-finished', function (BreadcrumbTrail $trail) {
     $trail->push('Tes Selesai');
 });
+
+// User Management
+Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('User Management');
+});

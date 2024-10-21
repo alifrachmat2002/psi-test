@@ -39,5 +39,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('can-htq', function ($user) {
             return $user->hasUnfinishedHasil() && $user->latestHasil->last_test == 'hscl-25'; // allow if user has unfinished test and the last test is HTQ
         });
+
+        // Gate check for users management
+        Gate::define('manage-users', function ($user) {
+            return $user->level == 1; // allow if user is admin
+        });
     }
 }

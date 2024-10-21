@@ -59,6 +59,15 @@
             <i class="fas fa-check fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>Hasil</span></a>
     </li>
+
+    @can('manage-users')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.users') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>User</span></a>
+        </li>
+    @endcan
+
     <li class="nav-item">
         <a class="nav-link" href="download.php">
             <i class="fas fa-download fa-sm fa-fw mr-2 text-gray-400"></i>
