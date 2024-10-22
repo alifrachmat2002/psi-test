@@ -27,15 +27,15 @@
         <ul>
             <li>
                 Nilai Depresi: <strong>{{ $hasil->dass21_depresi }}</strong>
-                <span>({{ $hasil->dass21Answers->keterangan_depresi }})</span>
+                {{-- <span>({{ $hasil->dass21Answers->keterangan_depresi }})</span> --}}
             </li>
             <li>
                 Nilai kecemasan: <strong>{{ $hasil->dass21_kecemasan }}</strong>
-                <span>({{ $hasil->dass21Answers->keterangan_kecemasan }})</span>
+                {{-- <span>({{ $hasil->dass21Answers->keterangan_kecemasan }})</span> --}}
             </li>
             <li>
                 Nilai Stress: <strong>{{ $hasil->dass21_stress }}</strong>
-                <span>({{ $hasil->dass21Answers->keterangan_stress }})</span>
+                {{-- <span>({{ $hasil->dass21Answers->keterangan_stress }})</span> --}}
             </li>
         </ul>
 
