@@ -55,7 +55,7 @@
                             @endif
                         </td>
                         <td>
-                            @if ($hasil->dass21_depresi != null && $hasil->dass21_kecemasan != null && $hasil->dass21_stress != null)
+                            @if ($hasil->last_test != 'ghq12')
                                 Depresi: {{ $hasil->dass21_depresi }}
                                 <br>
                                 @if ($hasil->dass21_depresi < 10)
@@ -109,7 +109,7 @@
                             @endif
                         </td>
                         <td>
-                            @if ($hasil->hscl25_depresiDSM4 != null && $hasil->hscl25_kecemasan != null && $hasil->hscl25_total != null)
+                            @if ($hasil->last_test != 'ghq12' && $hasil->last_test != 'dass-21')
                                 Depresi: {{ $hasil->hscl25_depresiDSM4 }}
                                 <br>
                                 @if ($hasil->hscl25_depresiDSM4 < 1.75)
@@ -145,7 +145,7 @@
                             @endif
                         </td>
                         <td>
-                            @if ($hasil->htq_depresiDSM4 != null && $hasil->htq_total != null)
+                            @if ($hasil->last_test != 'ghq12' && $hasil->last_test != 'dass-21' && $hasil->last_test != 'hscl-25')
                                 Depresi: {{ $hasil->htq_depresiDSM4 }}
                                 <br>
                                 @if ($hasil->htq_depresiDSM4 < 2.5)
