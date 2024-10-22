@@ -20,8 +20,6 @@
                     Kondisi mental anda memerlukan perhatian lebih lanjut.
                 </div>
             @endif
-
-    </div>
     @endif
     @if ($hasil->last_test == 'dass-21')
         <p>Terima kasih telah mengisi tes DASS21. Hasil tes DASS21 anda adalah sebagai berikut</p>
