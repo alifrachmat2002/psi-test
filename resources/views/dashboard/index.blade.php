@@ -15,10 +15,12 @@
         @else
             <h5 class="mb-3 text-primary">Untuk memulai tes, silahkan klik tombol di bawah ini </h5>
             <div class="d-flex justify-content-between align-items-center">
-                <a href="{{ route('test-ghq') }}" class="btn btn-primary d-block mb-3">Mulai Tes <i class="fas fa-arrow-right"></i></a>
-                @if (auth()->user()->hasil)
+                <a href="{{ route('test-ghq') }}" class="btn btn-primary d-block mb-3">Mulai Tes <i
+                        class="fas fa-arrow-right"></i></a>
+                @if (auth()->user()->hasil->count())
                     <p class="mx-3 text-primary">Atau</p>
-                    <a href="" class="btn btn-primary d-block mb-3">Lihat Riwayat Tes <i class="fas fa-file-medical-alt"></i></a>
+                    <a href="{{ route('hasil.index') }}" class="btn btn-primary d-block mb-3">Lihat Riwayat Tes <i
+                            class="fas fa-file-medical-alt"></i></a>
                 @endif
             </div>
         @endif

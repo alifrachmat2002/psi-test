@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/test-htq',[HTQController::class,'create'])->name('test-htq');
     Route::post('/test-htq',[HTQController::class,'store'])->name('test-htq.submit');
 
+    Route::get('/hasil',[TestController::class,'index'])->name('hasil.index');
+
     Route::get('/test-finished/{hasil}',[TestController::class,'testFinished'])->name('test-finished');
     Route::get('/resume-test',[TestController::class,'resumeTest'])->name('resume-test');
 

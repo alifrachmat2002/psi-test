@@ -55,7 +55,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="hasil.php">
+        <a class="nav-link" href="{{ route('hasil.index') }}">
             <i class="fas fa-check fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>Hasil</span></a>
     </li>

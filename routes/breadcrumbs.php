@@ -42,6 +42,12 @@ Breadcrumbs::for('test-finished', function (BreadcrumbTrail $trail) {
     $trail->push('Tes Selesai');
 });
 
+// Hasil Test Index
+Breadcrumbs::for('hasil.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Riwayat Hasil Test', route('hasil.index'));
+});
+
 // User Management
 Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');

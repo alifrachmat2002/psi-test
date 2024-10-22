@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
+    public function index()
+    {
+        $hasils = auth()->user()->hasil->where('status_pengerjaan','selesai')->sortByDesc('created_at');
+        return view('test.hasil.index', compact('hasils'));
+    }
+
     public function testFinished(Hasil $hasil) {
         $hasil->load('ghqAnswers', 'dass21Answers');
         return view('test.finished', compact('hasil'));
