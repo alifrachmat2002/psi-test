@@ -162,7 +162,7 @@
     @else
         <p>Rangkaian tes Anda sudah selesai.</p>
         <div class="d-flex justify-content-between align-items-center">
-            <a href="" class="text-decoration-none"><button class="btn btn-primary d-block mb-3"><i
+            <a target="_blank" href="{{ route('hasil.download',['hasil' => $hasil]) }}" class="text-decoration-none"><button class="btn btn-primary d-block mb-3"><i
                         class="fas fa-download"></i> Unduh Hasil Tes</button></a>
             <p class="mx-3">Atau</p>
             <a href="{{ route('dashboard') }}" class="text-decoration-none"><button class="btn btn-primary d-block mb-3">Kembali ke

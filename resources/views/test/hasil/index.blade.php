@@ -110,68 +110,73 @@
                         </td>
                         <td>
                             @if ($hasil->hscl25_depresiDSM4 != null && $hasil->hscl25_kecemasan != null && $hasil->hscl25_total != null)
-                            Depresi: {{ $hasil->hscl25_depresiDSM4 }}
-                            <br>
-                            @if ($hasil->hscl25_depresiDSM4 < 1.75)
-                                <span class="badge badge-success">Normal</span>
-                            @else
-                                <span class="badge badge-danger">Tinggi</span>
-                            @endif
+                                Depresi: {{ $hasil->hscl25_depresiDSM4 }}
+                                <br>
+                                @if ($hasil->hscl25_depresiDSM4 < 1.75)
+                                    <span class="badge badge-success">Normal</span>
+                                @else
+                                    <span class="badge badge-danger">Tinggi</span>
+                                @endif
 
-                            <br>
-                            Kecemasan: {{ $hasil->hscl25_kecemasan }}
-                            <br>
-                            @if ($hasil->hscl25_kecemasan < 1.75)
-                                <span class="badge badge-success">Normal</span>
-                            @else
-                                <span class="badge badge-danger">Tinggi</span>
-                            @endif
-                            <br>
-                            Total: {{ $hasil->hscl25_total }}
-                            <br>
-                            @if ($hasil->hscl25_total < 1.75)
-                                <span class="badge badge-success">Normal</span>
-                            @else
-                                <span class="badge badge-danger">Tinggi</span>
-                            @endif
-                            <br><br>
-                            @if ($hasil->hscl25_depresiDSM4 < 1.75 && $hasil->hscl25_kecemasan < 1.75 && $hasil->hscl25_total < 1.75)
-                                <p>Rekomendasi : Psikoedukasi</p>
-                            @else
-                                <p>Rekomendasi : </p>
-                            @endif
+                                <br>
+                                Kecemasan: {{ $hasil->hscl25_kecemasan }}
+                                <br>
+                                @if ($hasil->hscl25_kecemasan < 1.75)
+                                    <span class="badge badge-success">Normal</span>
+                                @else
+                                    <span class="badge badge-danger">Tinggi</span>
+                                @endif
+                                <br>
+                                Total: {{ $hasil->hscl25_total }}
+                                <br>
+                                @if ($hasil->hscl25_total < 1.75)
+                                    <span class="badge badge-success">Normal</span>
+                                @else
+                                    <span class="badge badge-danger">Tinggi</span>
+                                @endif
+                                <br><br>
+                                @if ($hasil->hscl25_depresiDSM4 < 1.75 && $hasil->hscl25_kecemasan < 1.75 && $hasil->hscl25_total < 1.75)
+                                    <p>Rekomendasi : Psikoedukasi</p>
+                                @else
+                                    <p>Rekomendasi : </p>
+                                @endif
                             @else
                                 Tidak Dikerjakan
                             @endif
                         </td>
                         <td>
                             @if ($hasil->htq_depresiDSM4 != null && $hasil->htq_total != null)
-                            Depresi: {{ $hasil->htq_depresiDSM4 }}
-                            <br>
-                            @if ($hasil->htq_depresiDSM4 < 2.5)
-                                <span class="badge badge-success">Normal</span>
-                            @else
-                                <span class="badge badge-danger">Tinggi</span>
-                            @endif
+                                Depresi: {{ $hasil->htq_depresiDSM4 }}
+                                <br>
+                                @if ($hasil->htq_depresiDSM4 < 2.5)
+                                    <span class="badge badge-success">Normal</span>
+                                @else
+                                    <span class="badge badge-danger">Tinggi</span>
+                                @endif
 
-                            <br>
-                            Total: {{ $hasil->htq_total }}
-                            <br>
-                            @if ($hasil->htq_total < 2.5)
-                                <span class="badge badge-success">Normal</span>
-                            @else
-                                <span class="badge badge-danger">Tinggi</span>
-                            @endif
-                            @if ($hasil->htq_depresiDSM4 < 1.75 && $hasil->hscl25_kecemasan < 1.75 && $hasil->hscl25_total < 1.75)
-                                <p>Rekomendasi : Psikoedukasi</p>
-                            @else
-                                <p>Rekomendasi : </p>
-                            @endif
+                                <br>
+                                Total: {{ $hasil->htq_total }}
+                                <br>
+                                @if ($hasil->htq_total < 2.5)
+                                    <span class="badge badge-success">Normal</span>
+                                @else
+                                    <span class="badge badge-danger">Tinggi</span>
+                                @endif
+                                @if ($hasil->htq_depresiDSM4 < 1.75 && $hasil->hscl25_kecemasan < 1.75 && $hasil->hscl25_total < 1.75)
+                                    <p>Rekomendasi : Psikoedukasi</p>
+                                @else
+                                    <p>Rekomendasi : </p>
+                                @endif
                             @else
                                 Tidak Dikerjakan
                             @endif
                         </td>
-                        <td><a href="">Lihat</a></td>
+                        <td>
+                            @if ($hasil->id == $latestHasilId)
+                                <a target="_blank" href="{{ route('hasil.show', ['hasil' => $hasil]) }}">Lihat</a>
+                                <a target="_blank" href="{{ route('hasil.download', ['hasil' => $hasil]) }}">Unduh</a>
+                            @endif
+                        </td>
                     </tr>
                 @empty
                     {{-- <tr>

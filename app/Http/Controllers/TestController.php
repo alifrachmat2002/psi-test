@@ -10,7 +10,21 @@ class TestController extends Controller
     public function index()
     {
         $hasils = auth()->user()->hasil->where('status_pengerjaan','selesai')->sortByDesc('created_at');
-        return view('test.hasil.index', compact('hasils'));
+
+        $latestHasilId = auth()->user()->latestHasil->id ?? null;
+        return view('test.hasil.index', compact('hasils', 'latestHasilId'));
+    }
+
+    public function show(Hasil $hasil) {
+        $hasil->load('ghqAnswers', 'dass21Answers');
+        return view('test.hasil.show', compact('hasil'));
+    }
+
+    public function download(Hasil $hasil) {
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML(view('test.hasil.show', compact('hasil'))->render());
+
+        return $mpdf->OutputHttpDownload('hasil-tes-'.$hasil->created_at.'.pdf');
     }
 
     public function testFinished(Hasil $hasil) {
