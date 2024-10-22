@@ -21,40 +21,6 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="form_inputghq12.php">
-            <i class="fas fa-fw fa-table fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>GHQ-12</span></a>
-    </li>
-
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="form_input.php">
-            <i class="fas fa-fw fa-table fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>DASS-21</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="form_inputhscl25.php">
-            <i class="fas fa-fw fa-table fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>HSCL-25</span></a>
-    </li>
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="form_inputhtq.php">
-            <i class="fas fa-fw fa-table fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>HTQ</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="form_inputpfs.php">
-            <i class="fas fa-fw fa-table fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>PFS</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
         <a class="nav-link" href="{{ route('hasil.index') }}">
             <i class="fas fa-check fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>Hasil</span></a>
