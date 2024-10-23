@@ -6,12 +6,6 @@
     </div>
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-3 text-primary">Riwayat Hasil Tes</h2>
-        @if ($hasils)
-            <div class="">
-                <a href="{{ route('test-ghq') }}" class="btn btn-primary d-block mb-3">Mulai Tes <i
-                        class="fas fa-arrow-right"></i></a>
-            </div>
-        @endif
     </div>
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
