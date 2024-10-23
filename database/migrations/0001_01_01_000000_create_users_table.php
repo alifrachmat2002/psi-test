@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('username')->unique();
-            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan'])->default('laki-laki');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('level')->default(2); // 1 = admin, 2 = user
