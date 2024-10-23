@@ -33,6 +33,13 @@
                 <span>User</span></a>
         </li>
     @endcan
+    @can('manage-rekap')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.rekap') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Rekap Hasil</span></a>
+        </li>
+    @endcan
 
     <li class="nav-item">
         <a class="nav-link" href="download.php">

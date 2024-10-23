@@ -44,5 +44,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('manage-users', function ($user) {
             return $user->level == 1; // allow if user is admin
         });
+
+        // Gate check for rekap management
+        Gate::define('manage-rekap', function ($user) {
+            return $user->level == 1; // allow if user is admin
+        });
     }
 }

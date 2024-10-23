@@ -34,7 +34,9 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
-    
+    {{-- chartjs cdn --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.5/dist/chart.umd.min.js"></script>
+
     <script src="https://cdn.datatables.net/v/bs4/dt-2.1.8/datatables.min.js"></script>
     @yield('scripts')
 </body>

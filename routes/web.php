@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminRekapController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/users/create',[AdminUserController::class,'store'])->can('manage-users')->name('admin.users.create');
         Route::get('/admin/users/{user}',[AdminUserController::class,'edit'])->can('manage-users')->name('admin.users.edit');
         Route::put('/admin/users/{user}',[AdminUserController::class,'update'])->can('manage-users')->name('admin.users.update');
+        Route::get('/admin/rekap',[AdminRekapController::class,'index'])->can('manage-rekap')->name('admin.rekap');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');

@@ -65,3 +65,9 @@ Breadcrumbs::for('admin.users.edit', function (BreadcrumbTrail $trail, $user) {
     $trail->parent('admin.users');
     $trail->push($user->name, route('admin.users.edit', $user));
 });
+
+// Admin Rekap
+Breadcrumbs::for('admin.rekap', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Rekap Hasil Tes', route('admin.rekap'));
+});
