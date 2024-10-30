@@ -6,7 +6,7 @@
     </div>
     <h2 class="mb-5 text-primary">Selamat Datang, {{ auth()->user()->name }}</h2>
     <div class="d-flex flex-column align-items-center">
-        <div class="alert alert-secondary p-4 ">
+        <div class="alert alert-primary p-4 ">
             <p>
                 Yth. Bapak/Ibu, saudara/i
             </p>
@@ -16,6 +16,14 @@
                 pada pegawai
                 Universitas
                 Diponegoro.</p>
+            <div class="alert alert-warning">
+                <h5 class="alert-heading">Disclaimer</h5>
+                <hr>
+                 Hasil Skrining tes Kesehatan mental ini bukan diagnosa klinis, tetapi merupakan gambaran kondisi Kesehatan mental anda saat ini.
+                 <br>
+                 <br>
+                 Apabila anda ingin mengetahui lebih lanjut diagnosa dan penjelasan mengenai Kondisi Kesehatan mental, Anda disarankan untuk menemui professional Kesehatan mental (psikolog klinis/psikiater) yang anda percaya dengan membawa hasil skrining ini.
+            </div>
             <p>Hasil pengisian aplikasi ini tidak ada kaitannya dengan penilaian kinerja karyawan yang dilakukan oleh
                 atasan.
                 Namun, Bapak/Ibu akan memperoleh hasil gambaran kondisi kesehatan mental Bapak/Ibu beserta rekomendasinya
@@ -43,13 +51,13 @@
                     Saya setuju untuk melanjutkan ke aplikasi skrining.
                 </label>
             </div>
-            <div class="form-check ">
+            {{-- <div class="form-check ">
                 <input class="form-check-input agreement-checkbox" type="checkbox" value="" id="setuju2">
                 <label class="form-check-label" for="setuju2">
                     Saya setuju untuk melanjutkan hasil skrining tersebut pada tindakan pendampingan kesehatan mental yang
                     akan dilakukan oleh tim kesehatan mental Universitas Diponegoro.
                 </label>
-            </div>
+            </div> --}}
         </div>
 
         @if (auth()->user()->hasUnfinishedHasil())
