@@ -38,7 +38,8 @@ return new class extends Migration
             $table->float('htq_total')->nullable();
             $table->dateTime('htq_waktu')->nullable();
 
-
+            // columns for aggreement to share data
+            $table->boolean('agreed_to_share_data')->default(false);
             $table->timestamps();
         });
     }

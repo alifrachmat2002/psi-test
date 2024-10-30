@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/hasil',[TestController::class,'index'])->name('hasil.index');
     Route::get('/hasil/{hasil}',[TestController::class,'show'])->name('hasil.show');
+    Route::post('/hasil/update-agreement/',[TestController::class,'updateAgreement'])->name('hasil.update-agreement');
     Route::get('/hasil/{hasil}/download',[TestController::class,'download'])->name('hasil.download');
 
     Route::get('/test-finished/{hasil}',[TestController::class,'testFinished'])->name('test-finished');
