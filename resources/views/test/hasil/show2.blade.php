@@ -51,17 +51,27 @@
         }
         .assessment-table {
             width: 100%;
-            border-collapse: collapse;
+            border: 1px solid black;
+            border-collapse: separate;
+            border-spacing: 0;
             font-size: 12px;
         }
         .assessment-table th, .assessment-table td {
-            border: 1px solid black;
             padding: 6px;
             text-align: left;
         }
         .assessment-table th {
             background-color: #f2f2f2;
             text-align: center;
+        }
+        .assessment-table tr td:first-child {
+            border-left: 1px solid black;
+        }
+        .assessment-table tr td:last-child {
+            border-right: 1px solid black;
+        }
+        .assessment-table tr:last-child td {
+            border-bottom: 1px solid black;
         }
         .section-title {
             font-weight: bold;
@@ -83,8 +93,7 @@
     </div>
 
     <div class="subheader">
-        <span style="text-align: left">Jl. Prof. Mr. Sunario, Tembalang, Semarang Telp. (024) 7460051 &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <span style="text-align: right">Penanggung Jawab: Psikolog (...)</span>
+        Jl. Prof. Mr. Sunario, Tembalang, Semarang Telp. (024) 7460051 &nbsp;&nbsp;&nbsp;&nbsp; Penanggung Jawab: Psikolog (...)
     </div>
 
     <div class="line"></div>
@@ -92,34 +101,27 @@
     <table class="info-table">
         <tr>
             <td>NO. REG</td>
-            <td>: {{ $hasil->id }} </td>
-            <td>(Barcode)</td>
-            <td>: </td>
-        </tr>
-        <tr>
+            <td>: [Barcode]</td>
             <td>NAMA</td>
-            <td><span>:</span> {{ $hasil->user->name }}</td>
-            <td>TANGGAL REG</td>
-            <td>: {{ $hasil->created_at->format('d F Y') }}</td>
+            <td>: [Nama]</td>
         </tr>
         <tr>
             <td>ALAMAT</td>
-            <td><span>:</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur veniam doloribus delectus dolor, eveniet suscipit?</td>
+            <td>: [Alamat]</td>
+            <td>TANGGAL REG</td>
+            <td>: [Tanggal Reg]</td>
+        </tr>
+        <tr>
             <td>JENIS KELAMIN</td>
-            <td>: {{ $hasil->user->jenis_kelamin }}</td>
-            
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
+            <td>: [Jenis Kelamin]</td>
             <td>TGL. LAHIR / USIA</td>
-            <td>: {{ $hasil->user->usia ?? '' }}</td>
+            <td>: [Tgl Lahir / Usia]</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
             <td>NO. TLP. / HP</td>
-            <td>:  {{ $hasil->user->no_tlp ?? '' }}</td>
+            <td>: [No Tlp / HP]</td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 
@@ -132,60 +134,57 @@
         </tr>
         <tr>
             <td><strong>KONDISI KESEHATAN MENTAL UMUM</strong></td>
-            <td>{{ $hasil->ghq_total }}</td>
-            <td>{{ $hasil->ghqAnswers->keterangan == 'sehat' ? "Normal" : "Tinggi" }}</td>
-            <td><strong>GHQ</strong></td>
+            <td></td>
+            <td></td>
+            <td>GHQ</td>
         </tr>
         <tr>
             <td colspan="4" class="section-title">GEJALA PERMASALAHAN KESEHATAN MENTAL</td>
         </tr>
         <tr>
             <td class="indent">Gejala Distress</td>
-            <td>{{ $hasil->dass21_stress }}</td>
-            <td>{{ $hasil->dass21Answers->keterangan_stress }}</td>
-            <td><strong>DASS-21</strong></td>
+            <td></td>
+            <td></td>
+            <td>DASS-21</td>
         </tr>
         <tr>
             <td class="indent">Gejala Kecemasan (Anxiety)</td>
-            <td>{{ $hasil->dass21_kecemasan }}</td>
-            <td>{{ $hasil->dass21Answers->keterangan_kecemasan }}</td>
-            <td><strong>DASS-21</strong></td>
+            <td></td>
+            <td></td>
+            <td>DASS-21</td>
         </tr>
         <tr>
             <td class="indent">Gejala Emosional (Depresi)</td>
-            <td>{{ $hasil->dass21_depresi }}</td>
-            <td>{{ $hasil->dass21Answers->keterangan_depresi }}</td>
-            <td><strong>DASS-21</strong></td>
+            <td></td>
+            <td></td>
+            <td>DASS-21</td>
         </tr>
         <tr>
             <td colspan="4" class="section-title">SCREENING AWAL GANGGUAN KEJIWAAN</td>
         </tr>
         <tr>
             <td class="indent">Gangguan Cemas</td>
-            <td>{{ $hasil->hscl25_kecemasan }}</td>
-            <td>{{ $hasil->hscl25_kecemasan < 1.75 ? 'Normal' : 'Tinggi'  }}</td>
-            <td><strong>HSCL-25</strong></td>
+            <td></td>
+            <td></td>
+            <td>HSCL-25</td>
         </tr>
         <tr>
             <td class="indent">Gangguan Mood Depresi</td>
-            <td>{{ $hasil->hscl25_depresiDSM4 }}</td>
-            <td>{{ $hasil->hscl25_depresiDSM4 < 1.75 ? 'Normal' : 'Tinggi'  }}</td>
-            <td><strong>HSCL-25</strong></td>
+            <td></td>
+            <td></td>
+            <td>HSCL-25</td>
         </tr>
         <tr>
             <td class="indent">Mixed Anxiety and Depression Disorder</td>
-            <td>{{ $hasil->hscl25_total }}</td>
-            <td>{{ $hasil->hscl25_total < 1.75 ? 'Normal' : 'Tinggi'  }}</td>
-            <td><strong>HSCL-25</strong></td>
+            <td></td>
+            <td></td>
+            <td>HSCL-25</td>
         </tr>
         <tr>
             <td class="indent">Gangguan Stres Pasca Trauma (PTSD)</td>
-            <td>
-                <p>Skor D :{{ $hasil->htq_depresiDSM4 }}</p>
-                <p>Skor Total :{{ $hasil->htq_total }}</p>
-            </td>
-            <td>{{ $hasil->htq_total < 2.5 && $hasil->htq_depresiDSM4 < 2.5 ? 'Normal' : 'Tinggi' }}</td>
-            <td><strong>HTQ</strong></td>
+            <td></td>
+            <td></td>
+            <td>HTQ</td>
         </tr>
     </table>
 </div>
