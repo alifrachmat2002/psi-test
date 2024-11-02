@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Hasil;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(100)->create();
 
         User::factory()->create([
             'name' => 'Admin',
@@ -27,6 +28,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'username' => 'testuser',
         ]);
+
+        Hasil::factory(1000)->create();
 
         $this->call([
             GHQQuestionsSeeder::class,
