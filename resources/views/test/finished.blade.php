@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('container')
-<meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="">
         {{ Breadcrumbs::render() }}
     </div>

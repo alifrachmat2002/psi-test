@@ -18,6 +18,9 @@
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
 
     <link href="https://cdn.datatables.net/v/bs4/dt-2.1.8/datatables.min.css" rel="stylesheet">
+
+    {{-- csrf token --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body id="page-top">
