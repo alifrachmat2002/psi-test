@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/users/{user}',[AdminUserController::class,'edit'])->can('manage-users')->name('admin.users.edit');
         Route::put('/admin/users/{user}',[AdminUserController::class,'update'])->can('manage-users')->name('admin.users.update');
         Route::get('/admin/rekap',[AdminRekapController::class,'index'])->can('manage-rekap')->name('admin.rekap');
+        Route::get('/admin/rekap/bar-chart-data',[AdminRekapController::class,'getBarChartData'])->can('manage-rekap')->name('admin.rekap.bar-chart-data');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
