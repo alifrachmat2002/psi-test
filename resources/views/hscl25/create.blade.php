@@ -17,13 +17,13 @@
         <ol>
             @foreach ($questions as $question)
                 <li class="mb-4">
-                    <p class="mb-2">{{ $question->question }}</p>
+                    <p class="mb-2">{!! $question->question !!}</p>
                     <div class="form-check">
                         <input class="form-check-input @error('q' . $loop->iteration) is-invalid @enderror" type="radio"
                             name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil1' }}" value="1"
                             @checked(old('q' . $loop->iteration) == '1')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil1' }}">
-                            Sama sekali tidak pernah (Not at all)
+                            Sama sekali tidak pernah (<em>Not at all</em>)
                         </label>
                     </div>
                     <div class="form-check">
@@ -31,7 +31,7 @@
                             name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil2' }}" value="2"
                             @checked(old('q' . $loop->iteration) == '2')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil2' }}">
-                            Sekali-sekali (A little)
+                            Sekali-sekali (<em>A little</em>)
                         </label>
                     </div>
                     <div class="form-check">
@@ -39,7 +39,7 @@
                             name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil3' }}" value="3"
                             @checked(old('q' . $loop->iteration) == '3')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil3' }}">
-                            Agak sering (Sometimes)
+                            Agak sering (<em>Sometimes</em>)
                         </label>
                     </div>
                     <div class="form-check">
@@ -47,7 +47,7 @@
                             name="q{{ $loop->iteration }}" id="{{ 'q' . $loop->iteration . 'pil4' }}" value="4"
                             @checked(old('q' . $loop->iteration) == '4')>
                         <label class="form-check-label" for="{{ 'q' . $loop->iteration . 'pil4' }}">
-                            Sering (often)
+                            Sering (<em>often</em>)
                         </label>
                     </div>
                     @error("q$loop->iteration")
