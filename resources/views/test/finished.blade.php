@@ -11,8 +11,12 @@
             <p>Terima kasih telah mengisi tes GHQ. Skor tes GHQ anda adalah <strong>{{ $hasil->ghq_total }}</strong></p>
 
             @if ($hasil->ghq_total <= 5)
-                <div class="alert alert-success" style="width: fit-content">
+                <div class="alert alert-success text-center" style="width: fit-content">
                     Anda memiliki kondisi mental yang sehat.
+                    <br><br>
+                    Untuk membantu menjaga kesehatan mental Anda,
+                    <br>
+                    Anda dapat mengakses panduan pemelihaan kesehatan mental mandiri <a href="{{ Storage::url('public/panduan_memelihara_kesehatan_mental.pdf') }}" target="_blank">di sini</a>
                 </div>
             @endif
             @if ($hasil->ghq_total > 5)
@@ -72,6 +76,11 @@
                     @endif yang cenderung tinggi.
                     <br>
                     Kondisi mental anda memerlukan perhatian lebih lanjut.
+                    <br><br>
+                    Untuk membantu menjaga kesehatan mental Anda,
+                    <br>
+                    anda dapat mengakses panduan self-help <a href="{{ Storage::url('public/panduan_self_help.pdf') }}"
+                        target="_blank">di sini</a>
                 </div>
                 @if ($hasil->status_pengerjaan == 'selesai')
                     <x-agreement-checkbox :hasil="$hasil" />    
