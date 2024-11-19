@@ -35,16 +35,18 @@
                 kesehatan
                 mental yang dapat mengakses data Bapak/Ibu dibawah sumpah kode etik profesi psikolog.</p>
 
-            Hak dan kewajiban anda.
-            <br>
-            <br>
-            <ol>
+            {{-- Hak dan kewajiban anda. --}}
+                {{-- <br>
+                <br> --}}
+            <p>⁠Anda diharapkan mencentang pernyataan dibawah ini apabila setuju untuk melanjutkan ke aplikasi
+                    skrining.</p>
+            {{-- <ol>
                 <li>⁠Anda diharapkan mencentang pernyataan dibawah ini apabila setuju untuk melanjutkan ke aplikasi
                     skrining.</li>
                 <li>⁠Anda diharapkan mencentang setuju apabila berkenan untuk melanjutkan hasil skrining tersebut pada
                     tindakan
                     pendampingan kesehatan mental yang akan dilakukan oleh tim kesehatan mental Universitas Diponegoro.</li>
-            </ol>
+            </ol> --}}
             <div class="form-check mt-4">
                 <input class="form-check-input agreement-checkbox" type="checkbox" id="setuju1">
                 <label class="form-check-label" for="setuju1">
