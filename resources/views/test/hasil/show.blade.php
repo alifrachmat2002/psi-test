@@ -153,7 +153,11 @@
             <tr>
                 <td><strong>KONDISI KESEHATAN MENTAL UMUM</strong></td>
                 <td>{{ $hasil->ghq_total }}</td>
+                @if ($hasil->ghqAnswers?->keterangan)
                 <td>{{ $hasil->ghqAnswers->keterangan == 'sehat' ? 'Normal' : 'Tinggi' }}</td>
+                @else
+                <td></td>
+                @endif
                 <td><strong>GHQ</strong></td>
             </tr>
             <tr>
@@ -163,7 +167,7 @@
                 <td class="indent">Gejala Distress</td>
                 @if ($hasil->dass21Answers)
                     <td>{{ $hasil->dass21_stress }}</td>
-                    <td>{{ $hasil->dass21Answers->keterangan_stress }}</td>
+                    <td>{{ $hasil->dass21Answers->keterangan_stress ?? '' }}</td>
                 @else
                     <td>Tidak Dikerjakan</td>
                     <td></td>
@@ -174,7 +178,7 @@
                 <td class="indent">Gejala Kecemasan (Anxiety)</td>
                 @if ($hasil->dass21Answers)
                     <td>{{ $hasil->dass21_kecemasan }}</td>
-                    <td>{{ $hasil->dass21Answers->keterangan_kecemasan }}</td>
+                    <td>{{ $hasil->dass21Answers->keterangan_kecemasan ?? '' }}</td>
                 @else
                     <td>Tidak Dikerjakan</td>
                     <td></td>
@@ -185,7 +189,7 @@
                 <td class="indent">Gejala Emosional (Depresi)</td>
                 @if ($hasil->dass21Answers)
                     <td>{{ $hasil->dass21_depresi }}</td>
-                    <td>{{ $hasil->dass21Answers->keterangan_depresi }}</td>
+                    <td>{{ $hasil->dass21Answers->keterangan_depresi ?? '' }}</td>
                 @else
                     <td>Tidak Dikerjakan</td>
                     <td></td>
