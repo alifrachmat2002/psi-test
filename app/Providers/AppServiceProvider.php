@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        \URL::forceScheme('https');
         // Gate check for GHQ test
         Gate::define('can-ghq', function ($user) {
             return $user->hasUnfinishedHasil() == false; // allow if user has no unfinished test
