@@ -24,7 +24,9 @@ class TestController extends Controller
 
     public function download(Hasil $hasil)
     {
-        $mpdf = new \Mpdf\Mpdf();
+        $mpdf = new \Mpdf\Mpdf([
+            'tempDir' => storage_path('app/mpdf-temp'),
+        ]);
         $mpdf->WriteHTML(view('test.hasil.show', compact('hasil'))->render());
 
         return $mpdf->OutputHttpDownload('hasil-tes-' . $hasil->created_at . '.pdf');
