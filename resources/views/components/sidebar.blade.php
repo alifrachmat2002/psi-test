@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink "></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Psi-Test</div>
+        <div class="sidebar-brand-text mx-3">MHSC</div>
     </a>
 
     <!-- Divider -->
@@ -46,17 +46,21 @@
             <i class="fas fa-download fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>Download</span></a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="contact.php">
             <i class="fas fa-phone fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>Kontak</span></a>
-    </li>
+    </li> --}}
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="logout.php">
-            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>Logout</span></a>
-    </li>
+    {{-- <li class="nav-item">
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <a class="nav-link">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                <span>Logout</span></a>
+
+        </form>
+    </li> --}}
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
