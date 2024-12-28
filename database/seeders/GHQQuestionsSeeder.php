@@ -16,7 +16,7 @@ class GHQQuestionsSeeder extends Seeder
         $questions = [
             [
                 'id' => 1,
-                'question' => 'Bisa berkonsentrasi pada apapun yang saya kerjakan',
+                'question' => 'Saya Bisa berkonsentrasi pada apapun yang saya kerjakan',
                 'pil1' => 'Lebih baik dari biasanya',
                 'pil2' => 'Sama seperti biasanya',
                 'pil3' => 'Kurang dari biasanya',

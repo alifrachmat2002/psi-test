@@ -269,7 +269,7 @@
                 </button>
             </div>
             <div class="toast-body">
-                Maaf, terjadi kesalahan saat memperbarui data. Silahkan refresh halaman.
+                Maaf, terjadi kesalahan saat memperbarui data. Silakan refresh halaman.
             </div>
         </div>
     </div>

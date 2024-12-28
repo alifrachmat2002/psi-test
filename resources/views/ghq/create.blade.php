@@ -1,15 +1,15 @@
 @extends('layouts.test')
 
 @section('test-description')
-    General Health Questionaire (GHQ) atau kondisi kesehatan mental umum terdiri dari
+    General Health Questionnaire (GHQ) atau kondisi kesehatan mental umum terdiri dari
     12 aitem yang akan mengidentifikasi distress psikologis individu dalam beberapa minggu terakhir. GHQ-12 (α =
     0.82)
-    didesain dalam setting klinis untuk mendeteksi secaara individual terkait kondisi Kesehatan mental. GHQ
+    didesain dalam setting klinis untuk mendeteksi secara individual terkait kondisi kesehatan mental. GHQ
     dikembangkan
     oleh Goldberg dan Hiller (1979).
     <br>
     <br>
-    Silahkan jawab pertanyaan berikut dengan jujur dan sejujurnya. Pilih salah satu jawaban yang paling mendekati
+    Silakan jawab pertanyaan berikut dengan jujur. Pilih salah satu jawaban yang paling mendekati
     kondisi anda dalam beberapa minggu terakhir. Jawaban anda akan membantu kami dalam menilai kondisi kesehatan.
     Jawaban anda bersifat rahasia dan tidak akan disebarkan ke pihak manapun.
 @endsection

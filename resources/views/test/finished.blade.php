@@ -199,7 +199,7 @@
             @endif
         @endif
         @if ($hasil->status_pengerjaan == 'belum selesai')
-            <p>Silahkan mengerjakan tes selanjutnya untuk mengetahui kondisi mental anda lebih lanjut</p>
+            <p>Silakan mengerjakan tes selanjutnya untuk mengetahui kondisi mental anda lebih lanjut</p>
             <a href="{{ route('resume-test') }}" class="text-decoration-none"><button
                     class="btn btn-primary d-block mb-3">Klik
                     untuk
@@ -258,7 +258,7 @@
                 </button>
             </div>
             <div class="toast-body">
-                Maaf, terjadi kesalahan saat memperbarui data. Silahkan coba lagi.
+                Maaf, terjadi kesalahan saat memperbarui data. Silakan coba lagi.
             </div>
         </div>
     </div>

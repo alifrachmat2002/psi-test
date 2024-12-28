@@ -29,7 +29,7 @@
                 Namun, Bapak/Ibu akan memperoleh hasil gambaran kondisi kesehatan mental Bapak/Ibu beserta rekomendasinya
                 untuk
                 dapat
-                mengelola maupun kesejahteraan psikologis Bapak/Ibu.</p>
+                mengelola maupun meningkatkan kesejahteraan psikologis Bapak/Ibu.</p>
 
             <p>Semua data yang disampaikan bersifat <em>anonymous</em> dan rahasia. Hanya pihak psikolog pemberi layanan
                 kesehatan
@@ -68,7 +68,7 @@
             <a href="{{ route('resume-test') }}" class="btn btn-primary">Lanjutkan Tes <i
                     class="fas fa-arrow-right"></i></a>
         @else
-            <h5 class="mb-3 text-primary">Untuk memulai tes, silahkan klik tombol di bawah ini </h5>
+            <h5 class="mb-3 text-primary">Untuk memulai tes, silakan klik tombol di bawah ini </h5>
             <div class="d-flex justify-content-between align-items-center">
                 <form action="{{ route('test-ghq') }}" method="GET">
                     <button type="submit" id="startButton" class="btn btn-primary d-block mb-3" disabled>Mulai Tes <i

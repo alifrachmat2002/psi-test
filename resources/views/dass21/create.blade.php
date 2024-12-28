@@ -5,7 +5,7 @@
 
     <br>
     <br>
-    Silahkan jawab pertanyaan berikut dengan jujur dan sejujurnya. Pilih salah satu jawaban yang paling mendekati
+    Silakan jawab pertanyaan berikut dengan jujur. Pilih salah satu jawaban yang paling mendekati
     kondisi anda dalam beberapa minggu terakhir. Jawaban anda akan membantu kami dalam menilai kondisi kesehatan.
     Jawaban anda bersifat rahasia dan tidak akan disebarkan ke pihak manapun.
 @endsection
