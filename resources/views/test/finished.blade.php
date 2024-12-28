@@ -16,7 +16,7 @@
                     <br><br>
                     Untuk membantu menjaga kesehatan mental Anda,
                     <br>
-                    Anda dapat mengakses panduan pemelihaan kesehatan mental mandiri <a href="{{ Storage::url('public/panduan_memelihara_kesehatan_mental.pdf') }}" target="_blank">di sini</a>
+                    Anda dapat mengakses panduan pemelihaan kesehatan mental mandiri <a href="{{ asset('storage/panduan_memelihara_kesehatan_mental.pdf') }}" target="_blank">di sini</a>
                 </div>
             @endif
             @if ($hasil->ghq_total > 5)
