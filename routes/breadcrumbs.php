@@ -71,3 +71,27 @@ Breadcrumbs::for('admin.rekap', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Rekap Hasil Tes', route('admin.rekap'));
 });
+
+// Materials
+Breadcrumbs::for('materials', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Materi dan Panduan', route('materials'));
+});
+
+// Materials Create
+Breadcrumbs::for('admin.materials.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('materials');
+    $trail->push('Unggah Materi dan Panduan Baru', route('admin.materials.create'));
+});
+
+// Materials Show
+Breadcrumbs::for('materials.show', function (BreadcrumbTrail $trail, $material) {
+    $trail->parent('materials');
+    $trail->push($material->judul, route('materials.show', $material));
+});
+
+// Materials Edit
+Breadcrumbs::for('admin.materials.edit', function (BreadcrumbTrail $trail, $material) {
+    $trail->parent('materials.show', $material);
+    $trail->push('Edit Materi dan Panduan', route('admin.materials.edit', $material));
+});

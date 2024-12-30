@@ -42,9 +42,9 @@
     @endcan
 
     <li class="nav-item">
-        <a class="nav-link" href="download.php">
+        <a class="nav-link" href="{{ route('materials') }}">
             <i class="fas fa-download fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>Download</span></a>
+            <span>Materi Self-Care</span></a>
     </li>
     {{-- <li class="nav-item">
         <a class="nav-link" href="contact.php">

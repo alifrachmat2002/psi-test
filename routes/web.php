@@ -8,6 +8,8 @@ use App\Http\Controllers\DASS21Controller;
 use App\Http\Controllers\GHQController;
 use App\Http\Controllers\HSCL25Controller;
 use App\Http\Controllers\HTQController;
+use App\Http\Controllers\AdminMaterialController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\TestController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -45,6 +47,13 @@ Route::middleware('auth')->group(function () {
         Route::put('/admin/users/{user}',[AdminUserController::class,'update'])->can('manage-users')->name('admin.users.update');
         Route::get('/admin/rekap',[AdminRekapController::class,'index'])->can('manage-rekap')->name('admin.rekap');
         Route::get('/admin/rekap/bar-chart-data',[AdminRekapController::class,'getBarChartData'])->can('manage-rekap')->name('admin.rekap.bar-chart-data');
+
+        
+        Route::get('/materials',[MaterialController::class,'index'])->name('materials');
+        Route::get('/materials/{material:slug}',[MaterialController::class,'show'])->name('materials.show');
+        Route::middleware('can:manage-materials')->group(function () {
+            Route::name('admin')->resource('admin/materials', AdminMaterialController::class);
+        });
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
