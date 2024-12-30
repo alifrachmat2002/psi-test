@@ -47,7 +47,7 @@
                                                 name="username" id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Username" value="{{ old('username') }}">
                                             <small id="usernameHelpBlock" class="form-text text-muted ml-3">
-                                                Isi dengan NIP anda.
+                                                Isi dengan NIP anda, tanpa titik maupun huruf. Contoh : 199706262023109999.
                                             </small>
                                             @error('username')
                                                 <div class="invalid-feedback">{{ $message }}</div>
