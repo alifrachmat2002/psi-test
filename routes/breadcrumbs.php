@@ -95,3 +95,9 @@ Breadcrumbs::for('admin.materials.edit', function (BreadcrumbTrail $trail, $mate
     $trail->parent('materials.show', $material);
     $trail->push('Edit Materi dan Panduan', route('admin.materials.edit', $material));
 });
+
+// User Profile
+Breadcrumbs::for('profile', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Profil Saya', route('profile'));
+});

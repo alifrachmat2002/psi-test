@@ -32,7 +32,10 @@
                         Logout
                     </button>
                 </form>
-
+                <a href="{{ route('profile') }}" class="dropdown-item">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profil Saya
+                </a>
             </div>
         </li>
 

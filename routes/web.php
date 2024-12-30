@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminMaterialController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -54,10 +55,13 @@ Route::middleware('auth')->group(function () {
         Route::middleware('can:manage-materials')->group(function () {
             Route::name('admin')->resource('admin/materials', AdminMaterialController::class);
         });
+        Route::get('/profile', [UserProfileController::class, 'index'])->name('profile');
+        Route::put('/profile/{user}', [UserProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
+
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
