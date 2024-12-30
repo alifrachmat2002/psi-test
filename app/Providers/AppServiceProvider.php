@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        \URL::forceScheme('https');
+        URL::forceScheme('https');
         // Gate check for GHQ test
         Gate::define('can-ghq', function ($user) {
             return $user->hasUnfinishedHasil() == false; // allow if user has no unfinished test
@@ -48,6 +49,11 @@ class AppServiceProvider extends ServiceProvider
 
         // Gate check for rekap management
         Gate::define('manage-rekap', function ($user) {
+            return $user->level == 1; // allow if user is admin
+        });
+
+        // Gate check for materials management
+        Gate::define('manage-materials', function ($user) {
             return $user->level == 1; // allow if user is admin
         });
     }
