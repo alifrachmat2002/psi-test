@@ -42,6 +42,68 @@
                         <button type="submit" class="btn btn-primary mb-2">Filter</button>
                     </form>
                 </div>
+                {{-- Charts Row 1 --}}
+                <div class="row mb-3">
+                    {{-- Jumlah Responden Tes --}}
+                    <div class="col mb-4 mb-lg-0">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="text-dark" style="font-weight: 600" id="jumlahResponden"></h3>
+                                <h6 class="text-dark" style="font-weight: 600">Responden Tes</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Jumlah Rangkaian Tes yang dikerjakan  --}}
+                    <div class="col mb-4 mb-lg-0">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="text-dark" style="font-weight: 600" id="jumlahTes"></h3>
+                                <h6 class="text-dark" style="font-weight: 600">Rangkaian Tes Dikerjakan</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    {{-- Jumlah Tes GHQ yang dikerjakan  --}}
+                    <div class="col mb-4 mb-lg-0">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="text-dark" style="font-weight: 600" id="jumlahGHQ"></h3>
+                                <h6 class="text-dark" style="font-weight: 600">Peserta Mengerjakan Tes GHQ-12</h6>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Jumlah Tes DASS-21 yang dikerjakan  --}}
+                    <div class="col mb-4 mb-lg-0">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="text-dark" style="font-weight: 600" id="jumlahDASS21"></h3>
+                                <h6 class="text-dark" style="font-weight: 600">Peserta Mengerjakan Tes DASS-21</h6>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Jumlah Tes HSCL-25 yang dikerjakan  --}}
+                    <div class="col mb-4 mb-lg-0">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="text-dark" style="font-weight: 600" id="jumlahHSCL25"></h3>
+                                <h6 class="text-dark" style="font-weight: 600">Peserta Mengerjakan Tes HSCL-25</h6>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Jumlah Tes HTQ yang dikerjakan  --}}
+                    <div class="col mb-4 mb-lg-0">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="text-dark" style="font-weight: 600" id="jumlahHTQ"></h3>
+                                <h6 class="text-dark" style="font-weight: 600">Peserta Mengerjakan Tes HTQ</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Charts Row 2 -->
                 <div class="row mb-3">
                     <!-- DASS21 Chart -->
@@ -331,7 +393,7 @@
                                         const label = context.label || '';
                                         const value = context.raw || 0;
                                         const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        const percentage = ((value / response.data.jumlah_ghq) * 100).toFixed(1);
                                         return `${label}: ${value} (${percentage}%)`;
                                     }
                                 }
@@ -349,10 +411,13 @@
 
                 const ctx = document.getElementById('dass21Chart').getContext('2d');
                 dass21Chart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'bar',
                     data: {
-                        labels: ['Gejala Depresi (D ≥ 21)', 'Gejala Cemas (A ≥ 20)', 'Gejala Stress (S ≥ 34)'],
+                        labels: ['Gejala Depresi (D ≥ 21)', 'Gejala Cemas (A ≥ 20)',
+                            'Gejala Stress (S ≥ 34)'
+                        ],
                         datasets: [{
+
                             data: [
                                 response.data.dass21_depresi,
                                 response.data.dass21_cemas,
@@ -378,7 +443,7 @@
                                 }
                             },
                             legend: {
-                                'position': 'bottom'
+                                display: false
                             },
                             tooltip: {
                                 callbacks: {
@@ -386,7 +451,7 @@
                                         const label = context.label || '';
                                         const value = context.raw || 0;
                                         const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        const percentage = ((value / response.data.jumlah_dass21) * 100).toFixed(1);
                                         return `${label}: ${value} (${percentage}%)`;
                                     }
                                 }
@@ -404,9 +469,11 @@
 
                 const ctx = document.getElementById('hscl25Chart').getContext('2d');
                 hscl25Chart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'bar',
                     data: {
-                        labels: ['Gangguan Mixed Anxiety and Depression', 'Gangguan Cemas', 'Gangguan Depresi'],
+                        labels: ['Gangguan Mixed', 'Gangguan Cemas',
+                            'Gangguan Depresi'
+                        ],
                         datasets: [{
                             data: [
                                 response.data.hscl25_mixed_anxiety_depression,
@@ -433,7 +500,7 @@
                                 }
                             },
                             legend: {
-                                'position': 'bottom'
+                                display: false
                             },
                             tooltip: {
                                 callbacks: {
@@ -441,7 +508,7 @@
                                         const label = context.label || '';
                                         const value = context.raw || 0;
                                         const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        const percentage = ((value / response.data.jumlah_hscl25) * 100).toFixed(1);
                                         return `${label}: ${value} (${percentage}%)`;
                                     }
                                 }
@@ -459,10 +526,13 @@
 
                 const ctx = document.getElementById('htqChart').getContext('2d');
                 htqChart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'bar',
                     data: {
-                        labels: ['Gangguan Depresi dengan trauma psikologis', 'Gangguan Cemas dengan trauma psikologis'],
+                        labels: ['Gangguan Depresi Trauma',
+                                'Gangguan Cemas Trauma',
+                            ],
                         datasets: [{
+                            label: 'Jumlah Responden',
                             data: [
                                 response.data.htq_depresi_trauma,
                                 response.data.htq_cemas_trauma,
@@ -486,7 +556,7 @@
                                 }
                             },
                             legend: {
-                                'position': 'bottom'
+                                display : false
                             },
                             tooltip: {
                                 callbacks: {
@@ -494,14 +564,30 @@
                                         const label = context.label || '';
                                         const value = context.raw || 0;
                                         const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        const percentage = ((value / response.data.jumlah_htq) * 100).toFixed(1);
                                         return `${label}: ${value} (${percentage}%)`;
                                     }
                                 }
+                            },
+                            layout: {
+                                padding: {
+                                    top: 20 // Add padding at the top to prevent clipping of the legend
+                                }
                             }
+
                         }
                     }
                 });
+            }
+
+            // function to hydrate dashboard data
+            function drawDashboard(response) {
+                $('#jumlahResponden').text(response.data.jumlah_responden);
+                $('#jumlahTes').text(response.data.jumlah_tes);
+                $('#jumlahGHQ').text(response.data.jumlah_ghq);
+                $('#jumlahDASS21').text(response.data.jumlah_dass21);
+                $('#jumlahHSCL25').text(response.data.jumlah_hscl25);
+                $('#jumlahHTQ').text(response.data.jumlah_htq);
             }
 
             // function to fetch data from database
@@ -519,6 +605,7 @@
                         drawDassChart(response);
                         drawHsclChart(response);
                         drawHtqChart(response);
+                        drawDashboard(response);
                         $('#liveToastBerhasil').toast('show');
                     },
                     error: function(error) {
